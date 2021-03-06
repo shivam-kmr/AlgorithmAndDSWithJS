@@ -1,2 +1,2 @@
 language = "nodejs"
-run = "node LinkedList.js"
+run = "node Queue.js"
