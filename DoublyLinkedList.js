@@ -2,10 +2,11 @@ class Node {
     constructor(value) {
         this.value = value;
         this.next = null
+        this.prev = null
     }
 }
 
-class LinkedList {
+class DoublyLinkedList {
     constructor (value) {
         this.head = new Node(value);
         this.length = 1
@@ -13,6 +14,7 @@ class LinkedList {
     }
     append (value) {
         var newNode = new Node(value)
+        newNode.prev = this.tail
         this.tail.next = newNode
         this.tail = newNode
         this.length++
@@ -79,22 +81,9 @@ class LinkedList {
         }
         console.log(items)
     }
-    reverse () {
-        var prev = this.head
-        var curr = prev.next
-        this.tail =  this.head
-        while (curr) {
-            var nextNode = curr.next
-            curr.next = prev
-            prev = curr
-            curr = nextNode
-        }
-        this.head.next = null
-        this.head = prev
-    }
 }
 
-var myLinkedList = new LinkedList(5);
+var myLinkedList = new DoublyLinkedList(5);
 myLinkedList.append(10)
 myLinkedList.append(15)
 myLinkedList.append(12)
@@ -104,6 +93,4 @@ myLinkedList.append(12)
 myLinkedList.append(14)
 myLinkedList.printList()
 myLinkedList.deleteAtIndex(10)
-myLinkedList.reverse()
 myLinkedList.printList()
-
