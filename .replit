@@ -1,2 +1,2 @@
 language = "nodejs"
-run = "node Queue.js"
+run = "node BinarySearchTree.js"
